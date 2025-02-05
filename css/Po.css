@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   overflow: hidden;
 }
@@ -12,7 +13,6 @@ body, html {
 .container {
   width: 100%;
   height: 100%;
-  font-family: "Poor Story", system-ui;
 }
 
 header {
@@ -20,9 +20,14 @@ header {
   right: 1%;
   top: 1%;
   width: 400px;
-  height: 100px;
-  background-color: #333;
-  border-radius: 10px;
+  height: 70px;
+
+  /* 수직 중앙 정렬 */
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  
+  border-radius: 5px;
   z-index: 10;
 }
 
@@ -37,7 +42,6 @@ header nav ul li {
 }
 
 header nav ul li .link {
-  border: 1px solid black;
   border-radius: 100%;
   width: 60px;
   height: 60px;
@@ -45,13 +49,16 @@ header nav ul li .link {
   text-align: center;
   margin-left: 10px;
   color: #fff;
-  background-color: #444;
-  transition: transform 0.3s ease;
+  background-color: yellowgreen;
+  transition: transform 0.2s ease;
+
+  text-decoration: none;
 }
 
 header nav ul li .link:hover {
   background-color: #ccc;
-  transform: scale(1.1);  /* 클릭 시 살짝 커지는 효과 */
+  transform: scale(1.1);
+  /* 호버 시 살짝 커지는 효과 */
 }
 
 .main {
@@ -75,8 +82,22 @@ section {
   text-align: center;
 }
 
-#Intro { background-color: rgb(255, 253, 228); }
-#about { background-color: lightsalmon; }
-#Project { background-color: lightyellow; }
-#blackHole { background-color: lightblue; }
-#contact { background-color: lightgreen; }
+#Intro {
+  background-color: rgb(255, 253, 228);
+}
+
+#about {
+  background-color: lightsalmon;
+}
+
+#Project {
+  background-color: lightyellow;
+}
+
+#blackHole {
+  background-color: lightblue;
+}
+
+#contact {
+  background-color: lightgreen;
+}
