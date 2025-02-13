@@ -83,7 +83,7 @@ window.addEventListener('wheel', (event) => {
     }, 500); // 0.5초 딜넣기
     // 스크롤 할때는 다시 바로 스크롤이 되게 하는걸 막는다
 
-}); //passive로 preventDefault가 동작하도록 설정한다다
+}); 
 
 //클릭한 a태그에 따라 슬라이드로 이동하는 기능
 const links = document.querySelectorAll(".link"); //차이점
