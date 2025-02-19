@@ -6,11 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>port</title>
-  <!-- reset.css 전역 적용 뭔가 안되서 폴더로 복사해서 주소 넣었음 -->
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/Po.css">
 
-  <link rel="stylesheet" <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/intro.css">
+  <link rel="stylesheet" href="../css/about.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
     rel="stylesheet">
 
 </head>
@@ -65,45 +66,67 @@
     <!-- slide 부분  -->
     <main class="main">
       <div class="slides">
-        <section id="Intro">
+        <!-- <section id="Intro">
 
-          <!-- 언덕 배경 -->
           <div class="scene">
             <div class="sky">
-              <div class="cloud"></div>
-              
+              <div class="cloud1">
+              </div>
+              <div class="cloud2"></div>
             </div>
             <div class="mountain"></div>
-            <div class="house">집
-              <div class="chimney">굴뚝</div>
-              <div class="roof">지붕</div>
-              <div class="up_house">윗집</div>
-              <div class="down_house">아래집</div>
+            <div class="house">
+              <div class="chimney"></div>
+              <div class="up_house"></div>
+              <div class="down_house">
+                <div class="door">
+                  <a href="#about" class="link" data-slide="1"></a>
+                </div>
+              </div>
               <div class="window">
-                <span>위</span>
-                <span>왼</span>
-                <span>아</span>
-                <span>오</span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
-              <div class="door">
-                <a href="#about" class="link" data-slide="1"></a>
-              </div>
+
             </div>
             <div class="hill">
               <span></span>
               <span></span>
               <span></span>
-              <span class="tree">나무1
-                <div class="tree1">잎</div>
-                <div class="tree1">나무줄기</div>
+              <span class="tree">
+                <div class="tree1"></div>
+                <div class="tree1"></div>
               </span>
             </div>
-            <div class="sun">해
-              <div>빛선1</div>
+            <div class="sun">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
           </div>
+        </section> -->
+
+        <section id="about">
+          <!-- 여기에 overflow hidden 필요 -->
+          <div class="windowAni">
+            <div class="leftWindow">왼</div>
+            <div class="rightWindow">오</div>
+          </div>
+          <div class="aboutTable">
+            <div class="edu">edu</div>
+            <div class="skills">skills</div>
+            <div class="favorite">favorite</div>
+          </div>
+          <div class="bicycle">bicycle...</div>
         </section>
-        <section id="about">about부분</section>
+
         <section id="Project">Project부분</section>
         <section id="blackHole">blackHole부분</section>
         <section id="contact">contact부분</section>
