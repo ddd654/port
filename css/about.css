@@ -1,14 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+
+.yeon-sung-regular {
+  font-family: "Yeon Sung", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 
+#about {
+  border: 5px solid red;
+  position: relative;
+  /* box-sizing: border-box; */
+}
+
+.windowAni {
+  background-color: rgb(255, 255, 167);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  overflow: hidden;
+
+  transition: transform 2s ease-in-out;
+}
+
+/* .leftWindow{
+  background-color: #d08c60;
+  width: 50%;
+  height: 100%;
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+
+  transition: transform 2s ease-in-out;
+}
+.rightWindow{
+  background-color: #997b66;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  
+  transition: transform 2s ease-in-out;
+}
+
+.windowAni.open .leftWindow{
+  transform: translate(-100%, 0%);
+}
+
+.windowAni.open .rightWindow{
+  transform: translate(100%, 0%);
+} */
+
+/*  */
+.aboutTable {
+  border: 2px solid black;
+  border-radius: 6px;
+  width: 60%;
+  height: 60%;
+
+  position: relative;
+
+}
+
+.aboutMe {
+  border: 1px solid red;
+  display: flex;
 
 
+}
 
+.aboutMe :nth-child(1) {
+  background-color: aliceblue;
+  width: 30%;
+  height: 50%;
 
+  margin: 1%;
 
+}
 
+.aboutMe :nth-child(2) {
+  width: 70%;
+  height: 50%;
 
+  text-align: left;
+  text-indent: 10px;
 
+  margin: 1%;
+}
 
+.education {
+  border: 1px solid blue;
+  display: flex;
 
+}
 
+.education :nth-child(1) {
+  background-color: aliceblue;
+  width: 30%;
+  height: 50%;
 
+  margin: 1%;
+
+}
+
+.education :nth-child(2) {
+  width: 70%;
+  height: 50%;
+
+  text-align: left;
+  text-indent: 10px;
+
+  margin: 1%;
+}
+
+.skills {
+  display: flex;
+  margin: 1%;
+}
+
+.skills .skillLeft {
+  background-color: aliceblue;
+  width: 30%;
+}
+
+.skills .skillRight {
+  background-color: greenyellow;
+  width: 70%;
+  margin: 1%;
+
+  text-align: left;
+  text-indent: 10px;
+}
+
+.skills .like {
+  
+}
+
+.skills .normal {
+
+}
+
+.skillRight ul {
+  border: 2px solid red;
+}
+
+.skillRight li {
+  display: inline;
+}
