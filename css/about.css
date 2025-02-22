@@ -8,13 +8,15 @@
 
 
 #about {
-  border: 5px solid red;
+  border: 4px solid black;
   position: relative;
   /* box-sizing: border-box; */
+  font-size: 16px;
+
+  background-color: #a8dadc;
 }
 
 .windowAni {
-  background-color: rgb(255, 255, 167);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -56,29 +58,36 @@
 
 /*  */
 .aboutTable {
-  border: 2px solid black;
+  background-color: #f1faee;
   border-radius: 6px;
   width: 60%;
   height: 60%;
-
   position: relative;
+  overflow: hidden;
 
+  display: flex;
+  flex-direction: column;
+  /* 세로로 배치하고고 */
+
+  font-size: 2.3vw;
 }
 
 .aboutMe {
-  border: 1px solid red;
   display: flex;
+  width: 100%;
 
+  flex: 1;
+  /* 비율을 1로 */
 
+  align-items: center;
 }
 
 .aboutMe :nth-child(1) {
-  background-color: aliceblue;
   width: 30%;
   height: 50%;
+  font-size: 130%;
 
-  margin: 1%;
-
+  margin: 1% 0%;
 }
 
 .aboutMe :nth-child(2) {
@@ -88,65 +97,82 @@
   text-align: left;
   text-indent: 10px;
 
-  margin: 1%;
+  margin: 1% 0%;
 }
 
 .education {
-  border: 1px solid blue;
   display: flex;
-
+  width: 100%;
+  flex: 1;
+  align-items: center;
 }
 
-.education :nth-child(1) {
-  background-color: aliceblue;
+.education>div {
   width: 30%;
   height: 50%;
-
-  margin: 1%;
-
+  font-size: 130%;
+  margin: 1% 0%;
 }
 
-.education :nth-child(2) {
+.education>ul {
   width: 70%;
   height: 50%;
 
   text-align: left;
   text-indent: 10px;
 
-  margin: 1%;
+  margin: 1% 0%;
 }
 
 .skills {
+  width: 100%;
+
   display: flex;
-  margin: 1%;
+  flex: 2;
+  /* 2의 비율 */
+  align-items: center;
 }
 
 .skills .skillLeft {
-  background-color: aliceblue;
   width: 30%;
+  font-size: 150%;
 }
 
 .skills .skillRight {
-  background-color: greenyellow;
   width: 70%;
-  margin: 1%;
+  margin: 1% 0%;
 
   text-align: left;
   text-indent: 10px;
 }
 
-.skills .like {
-  
-}
+.skills .like {}
 
-.skills .normal {
-
-}
+.skills .normal {}
 
 .skillRight ul {
-  border: 2px solid red;
+  padding: 3% 0% 5% 0%;
+
 }
 
 .skillRight li {
+  border-radius: 10px;
+  background-color: #ffb703;
   display: inline;
+  padding: 2%;
 }
+
+/* 스택 호버할때 색깔 정할것 */
+.skillRight li:hover {
+  background-color: #fb8500;
+}
+
+.front :nth-child(1) {
+}
+
+.backend :nth-child(1) {
+}
+
+
+
+
