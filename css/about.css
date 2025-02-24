@@ -56,13 +56,85 @@
   transform: translate(100%, 0%);
 } */
 
-/*  */
+.stage {
+  border: 2px solid rgb(247, 23, 255);
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+}
+
+.stage .topCurtain {
+  border: 2px solid red;
+  width: 100%;
+  height: 20%;
+
+  position: absolute;
+  top: 0%;
+
+}
+
+.stage .leftCurtain {
+  border: 2px solid orange;
+  width: 20%;
+  height: 20%;
+
+  position: absolute;
+  top: 20%;
+  left: 0%;
+}
+
+.stage .midSlide {
+  border: 2px solid yellow;
+  width: 60%;
+  height: 40%;
+
+  position: absolute;
+  top: 20%;
+  left: 20%;
+
+}
+
+.stage .rightCurtain {
+  border: 2px solid green;
+  width: 20%;
+  height: 20%;
+
+  position: absolute;
+  top: 20%;
+  left: 80%;
+}
+
+.stage .brownStage {
+  border: 2px solid blue;
+  width: 100%;
+  height: 20%;
+
+  position: absolute;
+  top: 60%;
+  left: 0%;
+
+}
+
+.stage .stageSeat {
+  border: 2px solid plum;
+  width: 100%;
+  height: 20%;
+
+  position: absolute;
+  top: 80%;
+  left: 0%;
+}
+
+/* ///////////////////// */
+
+
 .aboutTable {
   background-color: #f1faee;
   border-radius: 6px;
   width: 60%;
   height: 60%;
-  position: relative;
+  position: absolute;
   overflow: hidden;
 
   display: flex;
@@ -70,15 +142,17 @@
   /* 세로로 배치하고고 */
 
   font-size: 2.3vw;
+  /* 창 크기에따라 폰트 크기 바뀌게 */
+
+  z-index: 1;
 }
 
 .aboutMe {
   display: flex;
   width: 100%;
-
   flex: 1;
   /* 비율을 1로 */
-
+  text-indent: 10px;
   align-items: center;
 }
 
@@ -126,11 +200,13 @@
 
 .skills {
   width: 100%;
-
+  
   display: flex;
   flex: 2;
   /* 2의 비율 */
   align-items: center;
+
+
 }
 
 .skills .skillLeft {
@@ -138,17 +214,17 @@
   font-size: 150%;
 }
 
+.skillRight .like{
+  text-indent: 10px;
+
+}
 .skills .skillRight {
-  width: 70%;
   margin: 1% 0%;
 
   text-align: left;
-  text-indent: 10px;
+  width: 70%;
 }
 
-.skills .like {}
-
-.skills .normal {}
 
 .skillRight ul {
   padding: 3% 0% 5% 0%;
@@ -158,21 +234,38 @@
 .skillRight li {
   border-radius: 10px;
   background-color: #ffb703;
-  display: inline;
-  padding: 2%;
+  
+  position: relative;
+  /* 팁 메시지 위치용 */
+
+  display: inline-block;
+  padding: 1%;
 }
 
-/* 스택 호버할때 색깔 정할것 */
+/* 텍스트 맞추기부터 글자가 중앙으로 가야됨됨 */
 .skillRight li:hover {
   background-color: #fb8500;
 }
 
-.front :nth-child(1) {
+.front span {
+  border: 1px solid black;
 }
 
-.backend :nth-child(1) {
+/* hover 시의 팁 메시지 모양 */
+.tip {
+  background-color: yellow;
+
+  position: absolute;
+  left: 50%;
+  top: 100%;
+
+  visibility: hidden;
 }
 
+.front li:hover .tip {
+  visibility: visible;
+}
 
-
-
+.experience{
+  text-indent: 10px;
+}
