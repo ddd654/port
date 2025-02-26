@@ -114,10 +114,17 @@ for (let i = 0; i < links.length; i++) {
 
 }
 
+// 창크기가 변할때 슬라이드 효과 막는 기능
+let resize;
+window.addEventListener("resize", () =>{
+  slides.style.transition = 'none'
+  // clearTimeout(resize);
 
+  resize = setTimeout(() => {
+    slides.style.transition = 'transform 0.5s ease-in-out';
+  }, 500)
 
-
-
+})
 
 
 

@@ -1,0 +1,317 @@
+.stage {
+  border: 2px solid rgb(247, 23, 255);
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  overflow: hidden;
+
+}
+
+.stage .topCurtain {
+  border: 2px solid red;
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  top: -10%;
+}
+
+/* curtain 만들기 */
+.curtainContent {
+  border: 2px solid black;
+  width: 100%;
+  height: 20%;
+
+  /* position: absolute;
+  top: -10%; */
+
+  display: flex;
+  /* 부모 안 가로정렬 span도 됨 */
+}
+
+.curtain:nth-child(1) {
+  background-color: #d00000;
+
+  border-radius: 100%;
+  clip-path: inset(50% 0% 0% 50%);
+  margin-left: -10%;
+}
+
+.curtain {
+  background-color: #d00000;
+  width: 20%;
+  height: 100%;
+  /* margin-top: -7%; */
+  border: 5px solid yellow;
+
+  border-radius: 100%;
+  clip-path: inset(50% 0% 0% 0%);
+
+  position: relative;
+}
+
+.curtain:nth-child(7) {
+  background-color: #d00000;
+
+  border-radius: 100%;
+  clip-path: inset(50% 50% 0% 0%);
+  margin-right: -10%;
+}
+
+/* wrinkle */
+.curtain::after {
+  content: '원래 부분';
+  width: 100%;
+  height: 100%;
+  background: #d00000;
+  border-radius: 100%;
+
+  position: absolute;
+  top: -20%;
+  left: 0%;
+}
+
+.curtain::before {
+  content: '진한 부분';
+  width: 95%;
+  height: 100%;
+  background: #9d0208;
+  border-radius: 100%;
+
+  position: absolute;
+  top: -10%;
+  left: 2.5%;
+}
+
+/* .wrinkleContent{
+  border: 2px solid black;
+  width: 100%;
+  height: 30%;
+
+  position: absolute;
+  top: -15%;
+  left: 0%;
+  opacity: 0.5;
+
+  display: flex;
+}
+.curtainWrinkle:nth-child(1) {
+  background-color: rgb(127, 155, 255);
+
+  border-radius: 100%;
+  clip-path: inset(50% 0% 0% 50%);
+  margin-left: -10%;
+}
+
+.curtainWrinkle {
+  background-color: rgb(127, 155, 255);
+  width: 20%;
+  height: 100%;
+  
+  border-radius: 100%;
+  clip-path: inset(50% 0% 0% 0%);
+}
+
+.curtainWrinkle:nth-child(7) {
+  background-color: rgb(127, 155, 255);
+
+  border-radius: 100%;
+  clip-path: inset(50% 50% 0% 0%);
+  margin-right: -10%;
+} */
+
+.leftCurtain {
+  border: 2px solid orange;
+  width: 20%;
+  height: 26%;
+
+  position: absolute;
+  top: 6%;
+  left: -10%;
+
+  z-index: -1;
+}
+
+.longCurtain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 큰 반원 */
+.longCurtain_1 {
+  background: #fa4141;
+  width: 200%;
+  height: 200%;
+
+  position: absolute;
+  top: -130%;
+
+  border-radius: 100%;
+  clip-path: inset(50% 0% 0% 0%);
+}
+
+.longCurtain_2 {
+  background: #d00000;
+  width: 120%;
+  height: 500%;
+
+  position: absolute;
+  top: 60%;
+
+  border-radius: 100%;
+  clip-path: inset(0% 0% 50% 0%);
+}
+
+.curtainWrinkle_1::before {
+  content: '진한 부분';
+  width: 100%;
+  height: 100%;
+  background: #9d0208;
+  border-radius: 100%;
+
+  position: absolute;
+  top: -10%;
+  left: 0%;
+}
+
+.curtainWrinkle_1::after {
+  content: '원래 부분';
+  width: 90%;
+  height: 110%;
+  background: #fa4141;
+  border-radius: 100%;
+
+  position: absolute;
+  top: -20%;
+  left: 5%;
+}
+
+.curtainWrinkle_2::before {
+  content: '진한 부분';
+  width: 90%;
+  height: 100%;
+  background: #9d0208;
+  border-radius: 100%;
+
+  position: absolute;
+  top: -25%;
+  left: 5%;
+}
+
+.curtainWrinkle_2::after {
+  content: '원래 부분';
+  width: 90%;
+  height: 150%;
+  background: #fa4141;
+  border-radius: 100%;
+
+  position: absolute;
+  top: -75%;
+  left: 5%;
+}
+
+.curtainWrinkle_3::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #9d0208;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 4%;
+  left: 0%;
+}
+
+/* width: 100%;
+  height: 300%; */
+.curtainWrinkle_3::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #d00000;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 8%;
+  left: 0%;
+}
+
+.curtainWrinkle_4::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #9d0208;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 20%;
+  left: 0%;
+}
+
+.curtainWrinkle_4::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #d00000;
+  border-radius: 100%;
+
+  position: absolute;
+  top: 24%;
+  left: 0%;
+}
+
+.midRibbon {
+  background: yellow;
+  width: 40%;
+  height: 20%;
+
+  position: absolute;
+  top: 60%;
+
+  border-radius: 33%;
+}
+
+.rightCurtain {
+  border: 2px solid orange;
+  width: 20%;
+  height: 26%;
+
+  position: absolute;
+  top: 6%;
+  right: -10%;
+
+  z-index: -1;
+}
+
+.midSlide {
+  border: 2px solid yellow;
+  width: 60%;
+  height: 50%;
+
+  position: absolute;
+  top: 10%;
+  left: 20%;
+
+}
+
+.stage .brownStage {
+  border: 2px solid blue;
+  width: 100%;
+  height: 15%;
+
+  position: absolute;
+  top: 65%;
+  left: 0%;
+}
+
+.stage .stageSeat {
+  border: 2px solid plum;
+  width: 100%;
+  height: 20%;
+
+  position: absolute;
+  top: 80%;
+  left: 0%;
+}
