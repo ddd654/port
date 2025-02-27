@@ -119,11 +119,6 @@ let resize;
 window.addEventListener("resize", () =>{
   slides.style.transition = 'none'
   // clearTimeout(resize);
-
-  resize = setTimeout(() => {
-    slides.style.transition = 'transform 0.5s ease-in-out';
-  }, 500)
-
 })
 
 

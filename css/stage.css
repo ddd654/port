@@ -1,25 +1,23 @@
 .stage {
-  border: 2px solid rgb(247, 23, 255);
   width: 100%;
   height: 100%;
 
   position: absolute;
   overflow: hidden;
-
 }
 
 .stage .topCurtain {
-  border: 2px solid red;
   width: 100%;
   height: 100%;
 
-  position: relative;
-  top: -10%;
+  position: absolute;
+  bottom: 90%;
+
+  z-index: 3;
 }
 
 /* curtain 만들기 */
 .curtainContent {
-  border: 2px solid black;
   width: 100%;
   height: 20%;
 
@@ -28,6 +26,9 @@
 
   display: flex;
   /* 부모 안 가로정렬 span도 됨 */
+
+  position: absolute;
+  bottom: 0;
 }
 
 .curtain:nth-child(1) {
@@ -49,6 +50,8 @@
   clip-path: inset(50% 0% 0% 0%);
 
   position: relative;
+
+
 }
 
 .curtain:nth-child(7) {
@@ -122,15 +125,14 @@
 } */
 
 .leftCurtain {
-  border: 2px solid orange;
   width: 20%;
-  height: 26%;
+  height: 27%;
 
   position: absolute;
   top: 6%;
   left: -10%;
 
-  z-index: -1;
+  z-index: 2;
 }
 
 .longCurtain {
@@ -224,8 +226,6 @@
   left: 0%;
 }
 
-/* width: 100%;
-  height: 300%; */
 .curtainWrinkle_3::after {
   content: '';
   width: 100%;
@@ -271,41 +271,127 @@
   top: 60%;
 
   border-radius: 33%;
+
 }
 
 .rightCurtain {
-  border: 2px solid orange;
   width: 20%;
-  height: 26%;
+  height: 27%;
 
   position: absolute;
   top: 6%;
   right: -10%;
 
-  z-index: -1;
+  z-index: 2;
 }
 
 .midSlide {
   border: 2px solid yellow;
   width: 60%;
-  height: 50%;
+  height: 70%;
+  overflow: hidden;
 
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 20%;
+
+  box-sizing: border-box;
+  z-index: 1;
 
 }
 
-.stage .brownStage {
-  border: 2px solid blue;
+/* 갈색 무대 */
+.brownStage {
+  border: 2px solid black;
+  background-color: burlywood;
   width: 100%;
   height: 15%;
 
   position: absolute;
-  top: 65%;
-  left: 0%;
+  top: 85%;
+
+  overflow: hidden;
+
+  z-index: 3;
 }
 
+.brownStage .line {
+  /* background: yellow; */
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.brownStage .line>div {
+  background-color: black;
+  width: 1px;
+  height: 1000%;
+
+  display: inline-block;
+
+  margin: -10% 3% 0 3%;
+
+  box-shadow: 1px 0px 20px 2px rgba(255, 255, 255, 0.5);
+}
+
+.line div:nth-child(1) {
+  transform: rotate(67deg)
+}
+
+.line div:nth-child(2) {
+  transform: rotate(60deg)
+}
+
+.line div:nth-child(3) {
+  transform: rotate(50deg)
+}
+
+.line div:nth-child(4) {
+  transform: rotate(40deg)
+}
+
+.line div:nth-child(5) {
+  transform: rotate(30deg)
+}
+
+.line div:nth-child(6) {
+  transform: rotate(20deg)
+}
+
+.line div:nth-child(7) {
+  transform: rotate(0deg)
+}
+
+.line div:nth-child(8) {
+  transform: rotate(-20deg)
+}
+
+.line div:nth-child(9) {
+  transform: rotate(-30deg)
+}
+
+.line div:nth-child(10) {
+  transform: rotate(-40deg)
+}
+
+.line div:nth-child(11) {
+  transform: rotate(-50deg)
+}
+
+.line div:nth-child(12) {
+  transform: rotate(-60deg)
+}
+
+.line div:nth-child(13) {
+  transform: rotate(-67deg)
+}
+
+/* 할거 많아서 보류 */
 .stage .stageSeat {
   border: 2px solid plum;
   width: 100%;
