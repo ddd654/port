@@ -53,17 +53,46 @@
 } */
 
 /*////////////////////////// */
+
+.midSlide {
+  width: 60%;
+  height: 70%;
+  overflow: hidden;
+
+  position: absolute;
+  top: 15%;
+  left: 20%;
+
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.slideEffect {
+  background: grey;
+  width: 70%;
+  height: 60%;
+
+  position: absolute;
+  top: 15%;
+  left: 15%;
+
+  z-index: 1;
+  opacity: 0.5;
+}
+
 .aboutTable {
   background-color: ghostwhite;
   border-radius: 6px;
   width: 100%;
-  /* height: 100%; */
-  margin-top: 2%;
+  height: 80%;
+  margin-top: 10px;
 
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   font-size: 1rem;
+  align-content: center;
+  flex-wrap: wrap;
+
 }
 
 /* aboutTable의 레이아웃이 잘 안돼 어렵다 */
@@ -100,18 +129,23 @@
   height: 30%;
   text-indent: 10px;
   padding: 1%;
+  margin-top: 3%;
 }
 
 .aboutMe :nth-child(1) {
   width: 20%;
   height: 20%;
 
-  text-decoration: overline;
+  font-size: 1.4rem;
+  /* text-decoration: overline; */
+
+  animation: text_shadow 0.6s ease-in-out 1s infinite alternate;
 }
 
 .aboutMe :nth-child(2) {
   width: 100%;
   height: 50%;
+  margin-top: 3%;
 
   text-align: left;
   padding: 1%;
@@ -124,46 +158,67 @@
 
   text-indent: 10px;
   padding: 1%;
-
+  margin-top: 3%;
 }
 
 .education>div {
   width: 20%;
-  text-decoration: overline;
+  /* text-decoration: overline; */
+  font-size: 1.4rem;
 
+  animation: text_shadow 0.6s ease-in-out 1s infinite alternate;
 }
 
 .education>ul {
   width: 100%;
+  margin-top: 3%;
 
   text-align: left;
   padding: 1%;
+
 }
 
 .skills {
-  border: 1px solid red;
   width: 100%;
+  margin-top: 5%;
+
+}
+
+@keyframes text_shadow {
+  0% {
+    text-shadow: 1px 0px 0px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    text-shadow: 2px 2px 2px rgba(87, 73, 73, 0.5);
+  }
 }
 
 .skillLeft {
-  width: 20%;
-  text-decoration: overline;
-  margin-left: 1%;
-}
+  /* text-decoration: overline; */
+  text-align: center;
+  font-size: 1.4rem;
 
-.like {
-  text-indent: 10px;
+  animation: text_shadow 0.6s ease-in-out 1s infinite alternate;
 }
 
 .skillRight {
   text-align: left;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
 
-  margin: 1%;
+  position: relative;
 }
 
 .skillRight ul {
   padding: 1% 0% 2% 1%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+
+
 }
 
 .skillRight li {
@@ -211,12 +266,131 @@
   border-left: 0px;
 }
 
-.front li:hover .tip {
+.front li:hover .tip,
+.backend li:hover .tip  {
   visibility: visible;
   opacity: 1;
   transition: 0.3s ease-in-out;
 }
 
+.like {
+  width: 30%;
+  text-align: center;
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.like::after {
+  content: '☆';
+  margin-left: -60px;
+  color: black;
+}
+
+.animation_1:hover .like {
+  animation: jelly 1s infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.front {
+  width: 100%;
+  height: 100%;
+}
+
+.front li {
+  margin-left: 10px;
+  width: 100%;
+  position: relative;
+}
+
+/* image 넣기기 */
+.logoImage {
+  background-size: cover;
+  /* 이미지를 칸에맞게 자동조절 */
+
+  width: 50px;
+  height: 50px;
+}
+
+.html { background-image: url('/image/html.png');}
+.css { background-image: url('/image/css.png');}
+.js { background-image: url('/image/js.png');}
+.react { background-image: url('/image/react.png');  
+  width: 100px;
+  height: 40px;
+}
+.java { background-image: url('/image/java.png');}
+.spring { background-image: url('/image/spring.png');}
+.aws { background-image: url('/image/aws.png');}
+
 .experience {
-  text-indent: 10px;
+  width: 30%;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.experience::after {
+  content: '☆';
+  margin-left: -68px;
+  color: black;
+}
+
+.animation_2:hover .experience {
+  animation: jelly 1s infinite;
+}
+
+.front,
+.backend {
+  /* border: 2px solid red; */
+}
+
+.backend {
+  width: 80%;
+}
+
+.backend li {
+  margin-left: 10px;
+}
+
+.animation_1,
+.animation_2 {
+  width: 51%;
+}
+
+@keyframes jelly {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
