@@ -125,6 +125,7 @@
 }
 
 .aboutMe {
+  border: 2px solid red;
   width: 50%;
   height: 30%;
   text-indent: 10px;
@@ -152,6 +153,7 @@
 }
 
 .education {
+  border: 2px solid red;
   width: 50%;
   height: 30%;
   align-items: center;
@@ -179,6 +181,7 @@
 }
 
 .skills {
+  border: 2px solid red;
   width: 100%;
   margin-top: 5%;
 
@@ -223,7 +226,8 @@
 
 .skillRight li {
   border-radius: 10px;
-  background-color: #ffb703;
+  /* background-color: #ffb703; */
+  box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.2);
 
   position: relative;
   /* 팁 메시지 위치용 */
@@ -243,7 +247,7 @@
   padding: 10%;
 
   /* 팁 크기 */
-  width: 400%;
+  width: 300%;
 
   position: absolute;
   bottom: 100%;
@@ -267,7 +271,7 @@
 }
 
 .front li:hover .tip,
-.backend li:hover .tip  {
+.backend li:hover .tip {
   visibility: visible;
   opacity: 1;
   transition: 0.3s ease-in-out;
@@ -309,6 +313,9 @@
   margin-left: 10px;
   width: 100%;
   position: relative;
+
+  display: flex;
+  justify-content: center;
 }
 
 /* image 넣기기 */
@@ -320,16 +327,39 @@
   height: 50px;
 }
 
-.html { background-image: url('/image/html.png');}
-.css { background-image: url('/image/css.png');}
-.js { background-image: url('/image/js.png');}
-.react { background-image: url('/image/react.png');  
+.html {
+  background-image: url('/image/html.png');
+}
+
+.css {
+  background-image: url('/image/css.png');
+}
+
+.js {
+  background-image: url('/image/js.png');
+}
+
+.react {
+  background-image: url('/image/react.png');
   width: 100px;
   height: 40px;
 }
-.java { background-image: url('/image/java.png');}
-.spring { background-image: url('/image/spring.png');}
-.aws { background-image: url('/image/aws.png');}
+
+.java {
+  background-image: url('/image/java.png');
+}
+
+.spring {
+  background-image: url('/image/spring.png');
+  width: 60px;
+  height: 50px;
+}
+
+.aws {
+  background-image: url('/image/aws.png');
+  width: 60px;
+  height: 50px;
+}
 
 .experience {
   width: 30%;
@@ -371,23 +401,27 @@
   }
 
   30% {
-    transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.22, 0.77, 1);
   }
 
+  /* 보니까 x축이 늘어났다가
+ y축이 줄어들어야 하고
+ 그 반대가 되어야함 */
+
   40% {
-    transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.77, 1.22, 1);
   }
 
   50% {
-    transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.22, 0.88, 1);
   }
 
   65% {
-    transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.99, 1.11, 1);
   }
 
   75% {
-    transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.11, 0.99, 1);
   }
 
   100% {
