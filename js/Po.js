@@ -30,14 +30,22 @@ window.addEventListener('wheel', (event) => {
     }
   }
 
-  //0번에서 >>> 1번 슬라이드로 이동할때의 애니메이션
+  //1번에서 >>> 0번으로 갈때는 닫히게
   if (currentSlide == 1) {
-    windowAni.classList.add('open'); // 열리는 애니메이션
+    windowAni.classList.add('open');
+
+    setTimeout(() => {
+      windowAni.style.opacity = "0";
+      windowAni.style.pointerEvents = "none"; // 클릭, hover 이벤트 비활성화
+    }, 1000);
   }
 
-  //1번에서 >>> 0번으로 갈때는 닫히게
-  if (currentSlide !== 1) {
+  //0번에서 >>> 1번 슬라이드로 이동할때의 애니메이션
+  if (currentSlide == 0) {
     windowAni.classList.remove('open');
+    windowAni.style.opacity = "1";
+    windowAni.style.pointerEvents = "auto";
+    //클릭, hover 이벤트 활성화
   }
 
   // 슬라이드 이동 효과 넣기
@@ -80,11 +88,13 @@ for (let i = 0; i < links.length; i++) {
 
       if (!isNaN(currentSlide)) {//숫자가 아닐경우에
 
-        if (currentSlide == 1) {
+        if (slideNumber == 0) {
           windowAni.classList.add('open');
+
         }
-        if (currentSlide !== 1) {
-          windowAni.classList.remove('open');
+        if (slideNumber == 1) {
+          windowAni.classList.add('open');
+
         }
 
         //슬라이드 이동 효과
@@ -116,7 +126,7 @@ for (let i = 0; i < links.length; i++) {
 
 // 창크기가 변할때 슬라이드 효과 막는 기능
 let resize;
-window.addEventListener("resize", () =>{
+window.addEventListener("resize", () => {
   slides.style.transition = 'none'
   // clearTimeout(resize);
 })

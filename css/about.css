@@ -16,13 +16,13 @@
   width: 100%;
   height: 100%;
   position: absolute;
-
+  z-index: 2;
   overflow: hidden;
 
-  transition: transform 2s ease-in-out;
+  /* transition: transform 1s ease-in-out; */
 }
 
-/* .leftWindow{
+.leftWindow {
   background-color: #d08c60;
   width: 50%;
   height: 100%;
@@ -31,17 +31,18 @@
   top: 0%;
   left: 0%;
 
-  transition: transform 2s ease-in-out;
+  transition: transform 1s ease-in-out;
 }
-.rightWindow{
+
+.rightWindow {
   background-color: #997b66;
   width: 50%;
   height: 100%;
   position: absolute;
   top: 0%;
   left: 50%;
-  
-  transition: transform 2s ease-in-out;
+
+  transition: transform 1s ease-in-out;
 }
 
 .windowAni.open .leftWindow{
@@ -50,7 +51,7 @@
 
 .windowAni.open .rightWindow{
   transform: translate(100%, 0%);
-} */
+}
 
 /*////////////////////////// */
 
@@ -93,6 +94,8 @@
   align-content: center;
   flex-wrap: wrap;
 
+  /* overflow: hidden; */
+  /* 이거 할까 말까 생각중 */
 }
 
 /* aboutTable의 레이아웃이 잘 안돼 어렵다 */
@@ -125,7 +128,6 @@
 }
 
 .aboutMe {
-  border: 2px solid red;
   width: 50%;
   height: 30%;
   text-indent: 10px;
@@ -153,7 +155,6 @@
 }
 
 .education {
-  border: 2px solid red;
   width: 50%;
   height: 30%;
   align-items: center;
@@ -181,7 +182,6 @@
 }
 
 .skills {
-  border: 2px solid red;
   width: 100%;
   margin-top: 5%;
 
@@ -207,10 +207,10 @@
 
 .skillRight {
   text-align: left;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: center; */
 
   position: relative;
 }
@@ -221,6 +221,7 @@
   justify-content: flex-start;
   flex-direction: row;
 
+  margin-left: 11%;
 
 }
 
@@ -234,6 +235,8 @@
 
   display: inline-block;
   padding: 2%;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .skillRight li:hover {
@@ -311,11 +314,12 @@
 
 .front li {
   margin-left: 10px;
-  width: 100%;
   position: relative;
 
   display: flex;
   justify-content: center;
+  align-content: center;
+
 }
 
 /* image 넣기기 */
@@ -404,9 +408,12 @@
     transform: scale3d(1.22, 0.77, 1);
   }
 
-  /* 보니까 x축이 늘어났다가
- y축이 줄어들어야 하고
- 그 반대가 되어야함 */
+  /* 
+    x축이 늘어났다가
+    y축이 줄어들어야 하고
+    그 반대가 되어야함 
+    z는ㄴ 그대로
+ */
 
   40% {
     transform: scale3d(0.77, 1.22, 1);
