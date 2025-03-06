@@ -1,11 +1,20 @@
 #project {
   /* background-color: yellow; */
+  width: 100%;
+  height: 100vh;
+  /* 화면 크기만큼 */
+  position: relative;
+  transition: top 0.5s ease-in-out;
+  /* 스크롤 효과 */
+  top: 0;
 }
 
 .ocean {
   /* border: 2px solid black; */
   width: 100%;
   height: 100%;
+
+  position: relative;
 
   box-sizing: border-box;
 }
@@ -47,6 +56,7 @@
 
 }
 
+/* 작품 부분 */
 .project_1,
 .project_2,
 .project_3 {
@@ -107,12 +117,11 @@
   position: relative;
   top: 40%;
   left: -10%;
-
 }
 
+/* hover하면 주변의 원이 돌면서 대충 알려주게 */
 .project_1:hover {
   border-radius: 39% 61% 47% 53% / 48% 34% 66% 52%;
-  transition: 0.2s ease-in-out;
 }
 
 .project_2 {
@@ -137,191 +146,273 @@
   border-radius: 56% 44% 63% 37% / 54% 37% 63% 46%;
 }
 
+/* checkbox 없애기  */
+.project_title {
+  appearance: none;
+}
 
+label {
+  cursor: pointer;
+}
+
+/* 미리보기 */
 .preview {
   /* visibility: hidden; */
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 화면 중앙으로 이동 */
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  opacity: 0;
+  visibility: hidden;
+  /* 요 히든은 preview가 있는 공간을 누르면 나와서 필수 */
+  transition: 0.3s ease-in-out;
 }
 
-/* 이거 나중에 호버넣어야 한다 */
-.project_1:hover .preview {
-  /* pointer-events: none; */
-  /* a태그로 클릭안되게 */
-  background: yellow;
-  opacity: 0.5;
+.project_1 .preview,
+.project_2 .preview,
+.project_3 .preview {
+  width: 400%;
+  height: 90vh;
+  transform: translate(-50%, -50%);
+  /* 중앙 정렬 */
+}
 
-  position: absolute;
-  width: 500%;
-  height: 500%;
-  top: -100%;
-  left: 2%;
+.project_1 .preview {
+  top: 19.5%;
+  left: 227%;
+}
 
+.project_2 .preview {
+  top: 59%;
+  left: 67%;
+}
+
+.project_3 .preview {
+  top: -11%;
+  left: -105%;
+}
+
+/* 체크됐을때 나타내기 */
+.project_1 .project_title:checked~.preview,
+.project_2 .project_title:checked~.preview,
+.project_3 .project_title:checked~.preview {
+  opacity: 1;
+  opacity: 0.4;
+
+  transition: 0.3s ease-in-out;
+
+  z-index: 1;
   visibility: visible;
 }
 
-  /* 배경 방울 */
-  .bg_bubble {
-    width: 100%;
-    height: 100%;
 
-    position: absolute;
-    top: 0;
-    left: 0;
+.preview_image {
+  background: whitesmoke;
+  border: 1px solid black;
+  width: 50%;
+  height: 70%;
+}
 
-    opacity: 0.5;
-  }
+.preview_title {
+  background: whitesmoke;
+  border: 1px solid black;
+  width: 50%;
+  height: 25%;
+}
 
-  .bg_bubble :nth-child(n) {
-    width: 3%;
-    height: 10%;
+.preview_title p {
+  border: 1px solid black;
+}
 
-    box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1),
-      15px 15px 10px rgba(0, 0, 0, 0.1)
-      /* 우하단 그림자 */
-      , 10px 10px 10px rgba(0, 0, 0, 0.1);
-    /* 우하단 그림자2 */
+.preview_content {
+  background: whitesmoke;
+  border: 1px solid black;
+  width: 50%;
+  height: 100%;
 
-    /* animation: bubble 5s ease-in-out infinite alternate;   */
-    /* 마우스를 뗄뗴, 모양이 돌아올때 */
-  }
+  display: flex;
+  justify-content: center;
+}
 
-  .bg_bubble :nth-child(1) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+.preview_content ul {
+  border: 1px solid black;
+  width: 50%;
+  height: 90%;
+  text-align: left;
+  list-style-type: disc;
 
-    position: absolute;
-    top: 5%;
-    left: 5%;
-  }
+  align-content: center;
+}
 
-  .bg_bubble :nth-child(2) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+/* 배경 방울 */
+.bg_bubble {
+  width: 100%;
+  height: 100%;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
 
-  .bg_bubble :nth-child(3) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+  opacity: 0.5;
+}
 
-    position: absolute;
-    top: 30%;
-    left: 18%;
-  }
+.bg_bubble :nth-child(n) {
+  width: 3%;
+  height: 10%;
 
-  .bg_bubble :nth-child(4) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1),
+    15px 15px 10px rgba(0, 0, 0, 0.1)
+    /* 우하단 그림자 */
+    , 10px 10px 10px rgba(0, 0, 0, 0.1);
+  /* 우하단 그림자2 */
 
-    position: absolute;
-    top: 75%;
-    left: 95%;
-  }
+  /* animation: bubble 5s ease-in-out infinite alternate;   */
+  /* 마우스를 뗄뗴, 모양이 돌아올때 */
+}
 
-  .bg_bubble :nth-child(5) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+.bg_bubble :nth-child(1) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
 
-    position: absolute;
-    top: 25%;
-    left: 85%;
-  }
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
 
-  .bg_bubble :nth-child(6) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+.bg_bubble :nth-child(2) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
 
-    position: absolute;
-    top: 105%;
-    left: 15%;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
 
-  .bg_bubble :nth-child(7) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+.bg_bubble :nth-child(3) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
 
-    position: absolute;
-    top: 75%;
-    left: 35%;
-  }
+  position: absolute;
+  top: 30%;
+  left: 18%;
+}
 
-  .bg_bubble :nth-child(8) {
-    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+.bg_bubble :nth-child(4) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
 
-    position: absolute;
-    top: 115%;
-    left: 65%;
+  position: absolute;
+  top: 75%;
+  left: 95%;
+}
 
-    /* 이거 그냥 트윈맥스 쓰자;
+.bg_bubble :nth-child(5) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+
+  position: absolute;
+  top: 25%;
+  left: 85%;
+}
+
+.bg_bubble :nth-child(6) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+
+  position: absolute;
+  top: 105%;
+  left: 15%;
+}
+
+.bg_bubble :nth-child(7) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+
+  position: absolute;
+  top: 75%;
+  left: 35%;
+}
+
+.bg_bubble :nth-child(8) {
+  border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
+
+  position: absolute;
+  top: 115%;
+  left: 65%;
+
+  /* 이거 그냥 트윈맥스 쓰자;
     곡선에서 애먹음 */
 
-    /* animation: shake 8s infinite ease-in-out,
+  /* animation: shake 8s infinite ease-in-out,
     floatUp 8s infinite ease-in; */
+}
+
+/* 겉부분 울렁울렁 거리는거 */
+@keyframes bubble {
+  0% {
+    border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
   }
 
-  /* 겉부분 울렁울렁 거리는거 */
-  @keyframes bubble {
-    0% {
-      border-radius: 70% 78% 67% 65% / 90% 65% 71% 64%;
-    }
+  100% {
+    border-radius: 90% 65% 71% 64% / 70% 78% 67% 65%;
+  }
+}
 
-    100% {
-      border-radius: 90% 65% 71% 64% / 70% 78% 67% 65%;
-    }
+/* 좌우로 흔들리는거 */
+@keyframes shake {
+
+  /* 방울 맨 처음 위치 */
+  0% {
+    transform: translate(0%, 0%);
   }
 
-  /* 좌우로 흔들리는거 */
-  @keyframes shake {
-
-    /* 방울 맨 처음 위치 */
-    0% {
-      transform: translate(0%, 0%);
-    }
-
-    33% {
-      transform: translate(-200%, 0%);
-    }
-
-    66% {
-      transform: translate(200%, 0%);
-    }
-
-    100% {
-      transform: translate(200%, 0%);
-    }
+  33% {
+    transform: translate(-200%, 0%);
   }
 
-  /* 올라오는거 */
-  @keyframes floatUp {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      transform: translateY(-1000%);
-    }
+  66% {
+    transform: translate(200%, 0%);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .sand {
-    background: linear-gradient(to bottom, #0077b6, #1e6091);
-
-
-    width: 100%;
-    height: 20%;
+  100% {
+    transform: translate(200%, 0%);
   }
+}
+
+/* 올라오는거 */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-1000%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sand {
+  background: linear-gradient(to bottom, #0077b6, #1e6091);
+
+
+  width: 100%;
+  height: 20%;
+}
