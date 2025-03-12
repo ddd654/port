@@ -1,4 +1,4 @@
-
+// 마우스로 스크롤하는 경우
 //슬라이드를 마우스로 이동하는 기능
 let currentSlide = 0;
 const slides = document.querySelector(".slides");
@@ -37,6 +37,7 @@ window.addEventListener('wheel', (event) => {
     setTimeout(() => {
       windowAni.style.opacity = "0";
       windowAni.style.pointerEvents = "none"; // 클릭, hover 이벤트 비활성화
+      windowAni.style.zIndex = '1';
     }, 1000);
   }
 
@@ -46,6 +47,10 @@ window.addEventListener('wheel', (event) => {
     windowAni.style.opacity = "1";
     windowAni.style.pointerEvents = "auto";
     //클릭, hover 이벤트 활성화
+
+    setTimeout(() => {
+      windowAni.style.zIndex = '1';
+    }, 1000)
   }
 
   // 슬라이드 이동 효과 넣기
@@ -63,6 +68,7 @@ window.addEventListener('wheel', (event) => {
 
 });
 
+//-----------------------------------
 //클릭한 a태그에 따라 슬라이드 이동하는 기능
 const links = document.querySelectorAll(".link"); //차이점
 
@@ -90,11 +96,14 @@ for (let i = 0; i < links.length; i++) {
 
         if (slideNumber == 0) {
           windowAni.classList.add('open');
+          windowAni.style.zIndex = '2';
 
         }
         if (slideNumber == 1) {
           windowAni.classList.add('open');
-
+          setTimeout(() => {
+            windowAni.style.zIndex = '1';
+          }, 1000)
         }
 
         //슬라이드 이동 효과
@@ -132,7 +141,8 @@ window.addEventListener("resize", () => {
 })
 
 
-//내가 현재 슬라이드로 돌아가야하는데
+// 다른 html로 갔다가 돌아올때
+// 내가 현재 슬라이드로 돌아가야하는데
 // 필요한것
 // 현재 슬라이드 값
 // 현재 슬라이드 값 저장?
