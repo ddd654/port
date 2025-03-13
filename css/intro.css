@@ -281,9 +281,29 @@ section {
 
   display: flex;
   flex-direction: row;
+  
+  /* animation: scaleUpCenter 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
 
   z-index: 2;
 }
+
+/* 따로 만든 애니메이션 */
+.scaleUpCenter{
+  animation: scaleUpCenter 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes scaleUpCenter {
+  0% {
+    transform: scale(1);
+    transform-origin: 38% 70%;
+  }
+
+  100% {
+    transform: scale(50);
+    transform-origin: 38% 70%;
+  }
+}
+
 
 .house .door a::before,
 .house .door a::after {
@@ -297,14 +317,14 @@ section {
   width: 100%;
   height: 100%;
   background-color: #d08c60;
-  animation: scaleUpleft 2s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+  /* animation: scaleUpleft 1s cubic-bezier(0.550, 0.055, 0.675, 0.190) both; */
 }
 
 .house .door a::after {
   width: 100%;
   height: 100%;
   background-color: #997b66;
-  animation: scaleUpRight 02s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
+  /* animation: scaleUpRight 1s cubic-bezier(0.550, 0.055, 0.675, 0.190) both; */
 }
 
 /* 왼쪽을 향해 커지는거 */
@@ -488,3 +508,19 @@ section {
   position: absolute;
   transform: rotate(315deg) translate(0%, -140%);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

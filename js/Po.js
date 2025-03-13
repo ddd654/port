@@ -6,6 +6,7 @@ const sections = document.querySelectorAll("section");
 const totalSlides = sections.length;
 
 const windowAni = document.querySelector('.windowAni');
+const door = document.querySelector('.door a');
 
 let isScrolling = false; //스크롤 가능한지 상태
 
@@ -30,19 +31,24 @@ window.addEventListener('wheel', (event) => {
     }
   }
 
-  //1번에서 >>> 0번으로 갈때는 닫히게
+  //1번에서 >>> 0번으로 갈때는 커튼 문이 닫히게
   if (currentSlide == 1) {
+
     windowAni.classList.add('open');
 
     setTimeout(() => {
       windowAni.style.opacity = "0";
       windowAni.style.pointerEvents = "none"; // 클릭, hover 이벤트 비활성화
-      windowAni.style.zIndex = '1';
+      windowAni.style.zIndex = '2';
+
     }, 1000);
   }
 
   //0번에서 >>> 1번 슬라이드로 이동할때의 애니메이션
   if (currentSlide == 0) {
+
+    // door.classList.remove('scaleUpCenter');
+
     windowAni.classList.remove('open');
     windowAni.style.opacity = "1";
     windowAni.style.pointerEvents = "auto";
@@ -130,8 +136,12 @@ for (let i = 0; i < links.length; i++) {
     }
 
   })
-
 }
+
+
+// //intro 문짝 클릭하면 애니메이션 나오는 기능
+
+
 
 // 창크기가 변할때 슬라이드 효과 막는 기능
 let resize;
