@@ -7,8 +7,16 @@ const totalSlides = sections.length;
 
 const windowAni = document.querySelector('.windowAni');
 const door = document.querySelector('.door a');
+// cosnst text1 = document.querySelector('.text1');
 
 let isScrolling = false; //스크롤 가능한지 상태
+
+
+//intro 텍스트 효과 딜넣기
+// setTimeout(() => {
+//   document.querySelector('.board p').classList.add('show');
+// }, 3000)
+
 
 //마우스로 스크롤 가능하게하는 기능
 window.addEventListener('wheel', (event) => {
@@ -33,8 +41,8 @@ window.addEventListener('wheel', (event) => {
 
   //1번에서 >>> 0번으로 갈때는 커튼 문이 닫히게
   if (currentSlide == 1) {
-
     windowAni.classList.add('open');
+    // text1.style.opacity = '1';
 
     setTimeout(() => {
       windowAni.style.opacity = "0";
@@ -46,8 +54,9 @@ window.addEventListener('wheel', (event) => {
 
   //0번에서 >>> 1번 슬라이드로 이동할때의 애니메이션
   if (currentSlide == 0) {
-
     // door.classList.remove('scaleUpCenter');
+    // text1.style.opacity = '0';
+
 
     windowAni.classList.remove('open');
     windowAni.style.opacity = "1";

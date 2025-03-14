@@ -1,12 +1,32 @@
 /* intro의 텍스트 부분 */
 .text1 {
-  border: 2px solid red;
-  
+  /* border: 2px solid red; */
+  width: 20%;
+  height: 20%;
+
   position: absolute;
-  top: 20%;
-  left: 20%;
+  top: 15%;
+  left: 15%;
 
   font-size: 60px;
 
   display: flex;
 }
+
+.board p {
+  /* border: 2px solid red; */
+  animation: smoky 2s forwards;
+  animation-delay: 2s;
+}
+
+
+@keyframes smoky {
+  0% {
+  }
+
+  100% {
+    transform: rotate(360deg)scale(2);
+    opacity: 0;
+  }
+}
+
