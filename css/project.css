@@ -297,16 +297,27 @@ label {
 }
 
 .preview_title p {
-  background: rgb(255, 255, 176);
   height: 100%;
   align-content: center;
   border-radius: 10px;
+
+  position: relative;
+}
+
+.preview_title p::after {
+  content: "";
+  border: 2px solid black;
+  width: 75%;
+  position: absolute;
+  top: 35px;
+  left: 0px;
+
 }
 
 .preview_content {
   background: whitesmoke;
   width: 50%;
-  height: 100%;
+  height: 95%;
 
   display: flex;
   justify-content: center;
@@ -326,7 +337,14 @@ label {
   border-radius: 10px;
 }
 
-.preview_content ul {
+.preview_content ul::after {
+  content: "";
+  border: 2px solid black;
+  width: 37%;
+  position: absolute;
+  bottom: 60px;
+  right: 0px;
+
 }
 
 /* 배경 방울 */
