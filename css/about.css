@@ -337,21 +337,21 @@
 }
 
 .css {
-  background-image: url('image/css.png');
+  background-image: url('/image/css.png');
 }
 
 .js {
-  background-image: url('image/js.png');
+  background-image: url('./image/js.png');
 }
 
 .react {
-  background-image: url('image/react.png');
+  background-image: url('../image/react.png');
   width: 100px;
   height: 40px;
 }
 
 .java {
-  background-image: url('image/java.png');
+  background-image: url('//image/java.png');
 }
 
 .spring {
