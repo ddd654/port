@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
 .do-hyeon-regular {
   font-family: "Do Hyeon", sans-serif;
   font-weight: 400;
@@ -144,8 +145,7 @@
 
 .project_1 p,
 .project_2 p,
-.project_3 p {
-}
+.project_3 p {}
 
 @keyframes bubbleRadius_1 {
   0% {
@@ -230,6 +230,7 @@ label {
   visibility: hidden;
   /* 요 히든은 preview가 있는 공간을 누르면 나와서 필수 */
   transition: 0.2s ease-in-out;
+
 }
 
 .project_1 .preview,
@@ -239,6 +240,8 @@ label {
   height: 90vh;
   transform: translate(-50%, -50%);
   /* 중앙 정렬 */
+
+
 }
 
 .project_1 .preview {
@@ -264,6 +267,7 @@ label {
 
   z-index: 1;
   visibility: visible;
+
 }
 
 .preview_image {
@@ -272,9 +276,13 @@ label {
   height: 70%;
 
   align-content: center;
+  border-radius: 10px;
+
 }
-.preview_image img{
+
+.preview_image img {
   width: 100%;
+  border-radius: 10px;
 
 }
 
@@ -284,6 +292,7 @@ label {
   height: 25%;
 
   font-size: 44px;
+  border-radius: 10px;
 
 }
 
@@ -291,6 +300,7 @@ label {
   background: rgb(255, 255, 176);
   height: 100%;
   align-content: center;
+  border-radius: 10px;
 }
 
 .preview_content {
@@ -302,6 +312,8 @@ label {
   justify-content: center;
 
   font-size: 26px;
+  border-radius: 10px;
+
 }
 
 .preview_content ul {
@@ -311,6 +323,10 @@ label {
 
   align-content: center;
   padding: 20px;
+  border-radius: 10px;
+}
+
+.preview_content ul {
 }
 
 /* 배경 방울 */
