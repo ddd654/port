@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let startX, startY; //드래그 시작 지점
 
   //드래그로 시작하기
-  main.addEventListener('mousedown', () => {
+  main.addEventListener('mousedown', (e) => {
     isDrag = true
 
     startX = e.clientX; //드래그 시작 X좌표
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isDrag = false
   })
 
+  //마우스 움직이면
   main.addEventListener('mousemove', (e) => {
     if (!isDrag) { //드래그중이 아니면 빠져나오게 (실행x)
       return;
@@ -38,25 +39,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // smoke.style.left = `${ e.clientX}px`;
     // smoke.style.top = `${ e.clientY}px`;
 
-    smoke.style.left = `${ e.clientX}px`;
-    smoke.style.top = `${ e.clientY}px`;
+    //연기의 위치 정하기기
+    smoke.style.left = `${ e.clientX }px`;
+    smoke.style.top = `${ e.clientY }px`;
 
-    //연기 변화
+    //연기 크기 변화
     const distance = Math.sqrt(moveX * moveX + moveY * moveY); //이동 거리
-    smoke.style.width = `${distance /2}px`; //이동거리만큼 연기 크기 조정
-    smoke.style.height = `${distance /2}px`;
+    smoke.style.width = `${ distance / 2 }px`; //이동거리만큼 연기 크기 조정
+    smoke.style.height = `${ distance / 2 }px`;
 
-    smoke.style.transform = `rotate(${Math.atan2(moveY, moveX) * 180 /Math.PI}deg)`;
+
+    //마우스 방향으로 회전
+    const angle = Math.atan2(moveY, moveX) * 180 / Math.PI; //이동 방향 각도
+    smoke.style.transform = `rotate(${ angle }deg)`; //이동방향에 맞게 회전
 
     // 연기 사라지게
-    setTimeout(() =>{
+    setTimeout(() => {
       smoke.remove();
-    }, 4400);
+    }, 2000);
 
     //드래그 시작 좌표 업
     startX = e.clientX;
     startY = e.clientY;
-    
+
   })
 })
 
