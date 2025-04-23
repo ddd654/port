@@ -55,6 +55,36 @@ header nav ul li .link {
   text-decoration: none;
 }
 
+header nav ul li:nth-child(1) a {
+  background-color: #FEFAE0;
+}
+header nav ul li:nth-child(1) span {
+  color: black;
+
+}
+
+header nav ul li:nth-child(2) a {
+  background-color: #DDA15E;
+}
+header nav ul li:nth-child(2) span {
+  color: whitesmoke;
+}
+
+header nav ul li:nth-child(3) a {
+  background-color: #BC6C25;
+}
+header nav ul li:nth-child(3) span {
+  color: whitesmoke;
+
+}
+
+header nav ul li:nth-child(4) a {
+  background-color: #606C38;
+}
+header nav ul li:nth-child(4) span {
+  color: whitesmoke;
+}
+
 /* 호버 시 효과들 */
 header nav ul li .link:hover {
   background-color: #ccc;
@@ -67,6 +97,7 @@ header nav ul li .link:hover {
 }
 
 .slides {
+  position: relative;
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
@@ -244,6 +275,8 @@ section {
   left: 46%;
 
   z-index: 0;
+
+  box-shadow: 0px 0px 10px 1px gainsboro;
 }
 
 .up_house {
@@ -253,6 +286,7 @@ section {
 
   clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
   /* x% y% 만 보면 된다*/
+  box-shadow: 0px 0px 10px 1px gainsboro;
 }
 
 .down_house {
@@ -262,6 +296,7 @@ section {
 
   margin-top: -1%;
   margin-left: 10%;
+  box-shadow: 0px 0px 10px 1px gainsboro;
 }
 
 .door {
@@ -281,14 +316,14 @@ section {
 
   display: flex;
   flex-direction: row;
-  
+
   /* animation: scaleUpCenter 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both; */
 
   z-index: 2;
 }
 
 /* 따로 만든 애니메이션 */
-.scaleUpCenter{
+.scaleUpCenter {
   animation: scaleUpCenter 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
@@ -511,14 +546,19 @@ section {
 
 
 
+/* 만들어질때  */
+.opening{
+  background-color: #480A0A;
+  position: fixed;
 
+  width: 500%;
+  height: 500%;
 
+  opacity: 0;
+  pointer-events: none;
 
-
-
-
-
-
+  z-index:5;
+}
 
 
 

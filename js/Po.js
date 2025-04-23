@@ -7,6 +7,7 @@ const totalSlides = sections.length;
 
 const windowAni = document.querySelector('.windowAni');
 const door = document.querySelector('.door a');
+const nav = document.querySelector('nav');
 // cosnst text1 = document.querySelector('.text1');
 
 let isScrolling = false; //스크롤 가능한지 상태
@@ -26,7 +27,7 @@ window.addEventListener('wheel', (event) => {
   }
   isScrolling = true;
 
-  event.preventDefault(); //기본 브라우저 동작막기?
+  event.preventDefault(); //기본 브라우저 동작막기
 
   if (event.deltaY > 0) { // 아래로 스크롤하면
     if (currentSlide < totalSlides - 1) {
@@ -38,6 +39,8 @@ window.addEventListener('wheel', (event) => {
       currentSlide--;
     }
   }
+
+
 
   //1번에서 >>> 0번으로 갈때는 커튼 문이 닫히게
   if (currentSlide == 1) {
@@ -68,6 +71,8 @@ window.addEventListener('wheel', (event) => {
     }, 1000)
   }
 
+
+
   // 슬라이드 이동 효과 넣기
   slides.style.transition = "transform 0.5s ease-in-out"; // 애니메이션 효과 추가
   slides.style.transform = `translateX( -${ currentSlide * 100 }vw )`; // 슬라이드 이동
@@ -81,9 +86,33 @@ window.addEventListener('wheel', (event) => {
   }, 500); // 0.5초 딜넣기
   // 스크롤 할때는 다시 바로 스크롤이 되게 하는걸 막는다
 
+
+  //두번째 슬라이드로 가면 바로 검은화면
+  let isOpening = false;
+  const opening = document.querySelector('.opening');
+  
+  if (currentSlide == 1 && !isOpening) { //1 일때 애니메이션키고 몇초뒤 제거, 1이 아닐때도 제거, 1회용으로
+    opening.style.opacity = '1'; 
+    nav.style.opacity = '0.5'; //메뉴 사라지게
+
+    setTimeout(() => { //몇초 후에 화면 보이게
+      opening.style.opacity = '0';
+      nav.style.opacity = '1';
+    }, 500); // 1초 딜넣기
+
+    isOpening = true;
+  }
+
+  if (currentSlide != 1) {
+    opening.style.opacity = '0';
+    nav.style.opacity = '1'; //메뉴 생겨
+  }
+
 });
 
+
 //-----------------------------------
+//메뉴를 클릭했을때
 //클릭한 a태그에 따라 슬라이드 이동하는 기능
 const links = document.querySelectorAll(".link"); //차이점
 
@@ -92,15 +121,15 @@ let isClick = false; //클릭상태 확인하기기
 for (let i = 0; i < links.length; i++) {
   const link = links[i];
 
-  link.addEventListener("click", (e) => { //link를 클릭하면 일어나는 일일
+  link.addEventListener("click", (e) => { //link를 클릭하면 일어나는 일
 
     if (isScrolling) {
       return;
     }
     isClick = true;
-    e.preventDefault(); // a태그의 기본 링크 이동 막기?
+    e.preventDefault(); // a태그의 기본 링크 이동 막기
 
-    // e.target.closest('a')로 클릭된 a태그를 찾아 data-slide 값을 가져옵니다.
+    // e.target.closest('a')로 클릭된 a태그를 찾아 data-slide 값을 가져오기
     const clickedLink = e.target.closest('a');
     const slideNumber = clickedLink.getAttribute("data-slide");
 
@@ -142,6 +171,21 @@ for (let i = 0; i < links.length; i++) {
       }
     } else {
       console.error("data~slide 속성이 존재하지 않아요");
+    }
+
+
+    //두번째 슬라이드로 가면 바로 검은화면
+    const opening = document.querySelector('.opening');
+    //1 일때 애니메이션키고 몇초뒤 제거, 1이 아닐때도 제거, 1회용으로
+    if (slideNumber == 1) {
+      opening.style.opacity = '1';
+      //메뉴 사라져
+      nav.style.opacity = '0.5';
+    }
+
+    if (slideNumber != 1) {
+      opening.style.opacity = '0';
+      nav.style.opacity = '1'; //메뉴 생겨
     }
 
   })
