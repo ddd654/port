@@ -1,6 +1,8 @@
 // 마우스로 스크롤하는 경우
 //슬라이드를 마우스로 이동하는 기능
 let currentSlide = 0;
+let isOpening = false;
+
 const slides = document.querySelector(".slides");
 const sections = document.querySelectorAll("section");
 const totalSlides = sections.length;
@@ -12,14 +14,16 @@ const nav = document.querySelector('nav');
 
 let isScrolling = false; //스크롤 가능한지 상태
 
+// function handleOpening(){
+//   const main= document.querySelector('main')
+// }
 
 //intro 텍스트 효과 딜넣기
 // setTimeout(() => {
 //   document.querySelector('.board p').classList.add('show');
 // }, 3000)
 
-
-//마우스로 스크롤 가능하게하는 기능
+//마우스로 스크롤했을때 이벤트
 window.addEventListener('wheel', (event) => {
 
   if (isScrolling) { //스크롤이 가능하면 끝낸다
@@ -27,7 +31,6 @@ window.addEventListener('wheel', (event) => {
   }
   isScrolling = true;
 
-  event.preventDefault(); //기본 브라우저 동작막기
 
   if (event.deltaY > 0) { // 아래로 스크롤하면
     if (currentSlide < totalSlides - 1) {
@@ -39,8 +42,6 @@ window.addEventListener('wheel', (event) => {
       currentSlide--;
     }
   }
-
-
 
   //1번에서 >>> 0번으로 갈때는 커튼 문이 닫히게
   if (currentSlide == 1) {
@@ -60,7 +61,6 @@ window.addEventListener('wheel', (event) => {
     // door.classList.remove('scaleUpCenter');
     // text1.style.opacity = '0';
 
-
     windowAni.classList.remove('open');
     windowAni.style.opacity = "1";
     windowAni.style.pointerEvents = "auto";
@@ -71,8 +71,6 @@ window.addEventListener('wheel', (event) => {
     }, 1000)
   }
 
-
-
   // 슬라이드 이동 효과 넣기
   slides.style.transition = "transform 0.5s ease-in-out"; // 애니메이션 효과 추가
   slides.style.transform = `translateX( -${ currentSlide * 100 }vw )`; // 슬라이드 이동
@@ -80,33 +78,39 @@ window.addEventListener('wheel', (event) => {
   //슬라이드 번호
   console.log(`스크롤 중 슬라이드 번호는 ${ currentSlide + 1 }`);
 
-  //스크롤 지연 넣기
+  // 두번째 슬라이드 오프닝
+  // main에 오프닝을 추가해보자
+  // main에 클래스리스트를 붙여서 관리하자
+  const main = document.querySelector('main');
+  let opening = document.querySelector('.opening'); //태그 만들기
+  // opening.classList.add('opening');//opening에 갖다 붙이기
+
+  if (currentSlide == 1 && !isOpening) { //1번 슬라이드일때, isOpening 은 일회성으로 할때
+
+    if (!opening) { // opening 이 없으면
+      opening = document.createElement('div'); // 태그를 만든다
+      opening.classList.add('opening'); // 클래스 이름 붙인다
+      main.appendChild(opening); //태그에 추가한다
+    }
+
+    console.log(main);
+
+
+    isOpening = true; // 1회성 끝
+  } else { //그 외 슬라이드 일때
+
+    if (opening) { //opening이 있으면
+      // opening.classList.remove('opening'); // 선택 삭제
+      opening.remove(); //하위 태그 전부 삭제
+    }
+
+    // 오늘은 생기고 사라지게 까지 했고
+    // 이제 안쪽 애니메이션을 넣자
+  }
+
   setTimeout(() => {
     isScrolling = false;
-  }, 500); // 0.5초 딜넣기
-  // 스크롤 할때는 다시 바로 스크롤이 되게 하는걸 막는다
-
-
-  //두번째 슬라이드로 가면 바로 검은화면
-  let isOpening = false;
-  const opening = document.querySelector('.opening');
-  
-  if (currentSlide == 1 && !isOpening) { //1 일때 애니메이션키고 몇초뒤 제거, 1이 아닐때도 제거, 1회용으로
-    opening.style.opacity = '1'; 
-    nav.style.opacity = '0.5'; //메뉴 사라지게
-
-    setTimeout(() => { //몇초 후에 화면 보이게
-      opening.style.opacity = '0';
-      nav.style.opacity = '1';
-    }, 500); // 1초 딜넣기
-
-    isOpening = true;
-  }
-
-  if (currentSlide != 1) {
-    opening.style.opacity = '0';
-    nav.style.opacity = '1'; //메뉴 생겨
-  }
+  }, 500); //스크롤 0.5초 딜레이 넣기
 
 });
 
@@ -175,24 +179,16 @@ for (let i = 0; i < links.length; i++) {
 
 
     //두번째 슬라이드로 가면 바로 검은화면
-    const opening = document.querySelector('.opening');
-    //1 일때 애니메이션키고 몇초뒤 제거, 1이 아닐때도 제거, 1회용으로
-    if (slideNumber == 1) {
-      opening.style.opacity = '1';
-      //메뉴 사라져
-      nav.style.opacity = '0.5';
-    }
 
-    if (slideNumber != 1) {
-      opening.style.opacity = '0';
-      nav.style.opacity = '1'; //메뉴 생겨
-    }
 
   })
 }
 
 
-// //intro 문짝 클릭하면 애니메이션 나오는 기능
+// intro 문짝 클릭하면 애니메이션 나오는 기능
+
+
+
 
 
 

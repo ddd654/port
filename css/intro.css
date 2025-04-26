@@ -53,11 +53,14 @@ header nav ul li .link {
   transition: transform 0.2s ease;
 
   text-decoration: none;
+  aspect-ratio: 1 / 1;
+  /* 원 비율 1:1 */
 }
 
 header nav ul li:nth-child(1) a {
   background-color: #FEFAE0;
 }
+
 header nav ul li:nth-child(1) span {
   color: black;
 
@@ -66,6 +69,7 @@ header nav ul li:nth-child(1) span {
 header nav ul li:nth-child(2) a {
   background-color: #DDA15E;
 }
+
 header nav ul li:nth-child(2) span {
   color: whitesmoke;
 }
@@ -73,6 +77,7 @@ header nav ul li:nth-child(2) span {
 header nav ul li:nth-child(3) a {
   background-color: #BC6C25;
 }
+
 header nav ul li:nth-child(3) span {
   color: whitesmoke;
 
@@ -81,6 +86,7 @@ header nav ul li:nth-child(3) span {
 header nav ul li:nth-child(4) a {
   background-color: #606C38;
 }
+
 header nav ul li:nth-child(4) span {
   color: whitesmoke;
 }
@@ -545,22 +551,116 @@ section {
 }
 
 
-
-/* 만들어질때  */
-.opening{
+/* 정리해보면 */
+/* 1. 오프닝 태그를 만들고, 공기방울 태그와 안에 방울용 태그 3개를 넣는다 v*/
+/* 2. css로 배치 후 만들어주고 실행해본다. 
+    2-1. 방울 모양, 방울 울퉁불퉁 애니메이션, 빛 배치, 빛 효과...*/
+/* 3. js로 옮겨 2번째 슬라이드일때 속성을 추가하도록 한다*/
+/* 오프닝 */
+.opening {
   background-color: #480A0A;
   position: fixed;
 
-  width: 500%;
-  height: 500%;
+  width: 100vw;
+  height: 100vh;
 
-  opacity: 0;
-  pointer-events: none;
+  /* pointer-events: none;  */
+  /*이벤트 막는거는 메뉴에 있어야 막히겠지 */
 
-  z-index:5;
+  z-index: 5;
+}
+
+.air_bubbles {
+  border: 2px solid yellow;
+  /* background-color: yellow; */
+  position: fixed;
+  top: 48%;
+  left: 48%;
+
+  /* animation: up_left_bubble 2s forwards; */
+}
+
+/* 처음엔 작게 하다가 점점 크게 */
+@keyframes up_left_bubble {
+  0% {
+    scale: 0.5;
+    top: 48%;
+    left: 48%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: 100%;
+    left: 80%;
+  }
 }
 
 
+.air_bubbles div:nth-child(1) {
+  border: 0px solid whitesmoke;
+  position: absolute;
+  top: 15px;
+  left: 5px;
+
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(173, 216, 230, 0.1));
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
+  animation: bubble_wave 1s alternate infinite linear;
+}
+
+@keyframes bubble_wave {
+  0% {
+    transform: translate(2%, 2%);
+    border-radius: 43% 57% 49% 51% / 45% 55% 45% 55%;
+  }
+
+  33% {
+    transform: translate(-2%, -2%);
+    border-radius: 56% 44% 56% 44% / 57% 42% 58% 43%;
+  }
+
+  66% {
+    transform: translate(-2%, 2%);
+    border-radius: 43% 57% 42% 58% / 45% 31% 69% 55%;
+  }
+
+  100% {
+    transform: translate(2%, -2%);
+    border-radius: 43% 57% 49% 51% / 60% 56% 44% 40%;
+  }
+}
+
+.air_bubbles div:nth-child(2) {
+  border: 0px solid whitesmoke;
+  position: absolute;
+  top: 6px;
+  left: 7px;
+
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(173, 216, 230, 0.1));
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
+  animation: bubble_wave 1s alternate-reverse infinite linear;
+}
+
+.air_bubbles div:nth-child(3) {
+  border: 0px solid whitesmoke;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(173, 216, 230, 0.2));
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+
+  animation: bubble_wave 1s alternate forwards infinite linear;
+}
 
 
+/* 펼쳐지는 느낌까지는 알겠는데
 
+1. 여러개의 태그를 사방으로 퍼지게 추가해야한다
+2. 똑같은 태그를 추가하고 애니메이션을 다르게 넣으면 되겠지
+*/
