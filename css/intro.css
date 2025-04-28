@@ -567,7 +567,13 @@ section {
   /* pointer-events: none;  */
   /*이벤트 막는거는 메뉴에 있어야 막히겠지 */
 
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
   z-index: 5;
+}
+
+.opening.fadeOut{
+  opacity: 0;
 }
 
 
@@ -771,7 +777,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: -100%;
     left: -40%;
   }
@@ -785,7 +791,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: -20%;
     left: -100%;
   }
@@ -800,7 +806,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: -100%;
     left: 100%;
   }
@@ -814,7 +820,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: -70%;
     left: 300%;
   }
@@ -828,7 +834,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: 100%;
     left: -100%;
   }
@@ -842,7 +848,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: 100%;
     left: -7%;
   }
@@ -856,7 +862,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: 100%;
     left: 20%;
   }
@@ -870,7 +876,7 @@ section {
   }
 
   100% {
-    scale: 5.0;
+    scale: 10;
     top: 100%;
     left: 100%;
   }
@@ -879,7 +885,7 @@ section {
 
 /* 각 물방울 */
 .airBubbles :nth-child(1) {
-  border: 1px solid whitesmoke;
+  border: 0px solid whitesmoke;
   position: absolute;
   top: 15px;
   left: 5px;
@@ -892,7 +898,7 @@ section {
 }
 
 .airBubbles div:nth-child(2) {
-  border: 1px solid whitesmoke;
+  border: 0px solid whitesmoke;
   position: absolute;
   top: 6px;
   left: 7px;
@@ -905,7 +911,7 @@ section {
 }
 
 .airBubbles div:nth-child(3) {
-  border: 1px solid whitesmoke;
+  border: 0px solid whitesmoke;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -948,7 +954,7 @@ section {
 */
 
 .light {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 100px;
   height: 100px;
 
@@ -960,18 +966,43 @@ section {
 
 .light::after {
   content: '';
-  border: 2px solid white;
-  width: 200px;
-  height: 200px;
+  background: whitesmoke;
 
   position: absolute;
   top: 50%;
   left: 50%;
 
+
+  box-shadow: 0px 0px 50px #fff200,
+    0px 0px 20px #fff200;
+
   transform: translate(-50%, -50%);
+  animation: expand 7s forwards ease-in-out;
+  animation-delay: 5s;
 }
 
-.light::before {
+@keyframes expand {
+  0% {
+    width: 0vw;
+    height: 10vh;
+  }
+
+  40% {
+    width: 1vw;
+    height: 100vh;
+  }
+
+  70% {
+    width: 5vw;
+  }
+
+  100% {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+/* .light::before {
   content: '';
   border: 2px solid yellow;
   width: 300px;
@@ -982,4 +1013,10 @@ section {
   left: 50%;
 
   transform: translate(-50%, -50%);
-}
+} */
+
+
+
+
+
+

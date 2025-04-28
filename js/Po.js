@@ -12,6 +12,7 @@ const nav = document.querySelector('nav');
 // cosnst text1 = document.querySelector('.text1');
 
 let isScrolling = false; //스크롤 가능한지 상태
+let isOpening = false;
 
 // function handleOpening(){
 //   const main= document.querySelector('main')
@@ -51,7 +52,6 @@ window.addEventListener('wheel', (event) => {
       windowAni.style.opacity = "0";
       windowAni.style.pointerEvents = "none"; // 클릭, hover 이벤트 비활성화
       windowAni.style.zIndex = '2';
-
     }, 1000);
   }
 
@@ -83,9 +83,9 @@ window.addEventListener('wheel', (event) => {
   const main = document.querySelector('main');
   let opening = document.querySelector('.opening'); //태그 정보
   const newDiv = document.createElement('div'); //div 태그 만들기
-  let isOpening = false;
 
   if (currentSlide == 1 && !isOpening) { //1번 슬라이드일때, isOpening 은 일회성으로 할때
+    isScrolling = true; //시작시 스크롤 막기
 
     if (!opening) { // opening 이 없으면 
 
@@ -97,7 +97,6 @@ window.addEventListener('wheel', (event) => {
       opening.appendChild(newDiv); //만들어진 div를(airBubbles) opening에 붙인다.
 
       const airBubbles = document.querySelector('.airBubbles');
-
       for (let i = 0; i < 3; i++) {// airBubbles안에 3번 div 추가
         const childDiv = document.createElement('div');
         airBubbles.appendChild(childDiv);
@@ -108,38 +107,59 @@ window.addEventListener('wheel', (event) => {
       lightDiv.classList.add('light'); //클래스 이름은 light로
       opening.appendChild(lightDiv);
 
-      console.log( '깊복전', opening);
+      console.log('깊복전', opening);
 
       //이제 css를 추가해야한다
       // 1. 위의 opening 태그를 깊게 복사하고, 8번 붙인다
       // 2. 붙이면?.. 예를들어 두번째로 복사한 태그의 애니메이션 속성만 건드릴 수 있나?
-      
-      for(let i = 0; i < 27; i++){ //방울 몇번 복사 반복해서
+
+      for (let i = 0; i < 27; i++) { //방울 몇번 복사 반복해서
         const cloneAirBubble = airBubbles.cloneNode(true); //airBubbles를 깊은 복사
         opening.appendChild(cloneAirBubble); // opening에 airBubbles를 붙인다.
       }
-      
-      console.log( '깊복후', opening);
+
+      console.log('깊복후', opening);
+
+      //근데, 시간이 지나도 없애야돼
+      //fade out처럼 삭제하는법
+      setTimeout(() => {
+        opening.classList.add('fadeOut');
+      }, 12500); //12.5s 후에 실행되는 것들
+
+      setTimeout(() => {
+        if (opening) { //opening이 있으면
+          opening.classList.remove('opening'); // 선택 삭제
+          opening.remove(); //하위 태그 전부 삭제
+          isOpening = false; //false 로 만들어
+          console.log('삭제 됐나 안됐나');
+        }
+
+        isScrolling = false;
+
+      }, 13300); //13s 후에 실행되는 것들
     }
-    // isOpening = true; // 1회성으로 하기
-  } else { //그 외 슬라이드 일때
+
+  } else if (currentSlide != 1 || isOpening) { //그 외 슬라이드 일때 없애야돼 이제
+    const opening = document.querySelector('.opening');
 
     if (opening) { //opening이 있으면
       opening.classList.remove('opening'); // 선택 삭제
       opening.remove(); //하위 태그 전부 삭제
+      isOpening = false;
+      console.log('삭제 됐나 안됐나');
     }
+    isOpening = true; // 1회성으로 하기
 
+    setTimeout(() => {
+      isScrolling = false;
+    }, 500); //스크롤 0.5초 딜레이 넣기
   }
-
-  setTimeout(() => {
-    isScrolling = false;
-  }, 500); //스크롤 0.5초 딜레이 넣기
-
 });
 
 
+
 //-----------------------------------
-//메뉴를 클릭했을때
+//메뉴를 클릭했을때의 경우
 //클릭한 a태그에 따라 슬라이드 이동하는 기능
 const links = document.querySelectorAll(".link"); //차이점
 
@@ -202,19 +222,77 @@ for (let i = 0; i < links.length; i++) {
 
 
     //두번째 슬라이드로 가면 바로 검은화면
+    // 두번째 슬라이드 오프닝
+    // main에 오프닝을 추가 
+    // main에 클래스리스트를 붙여야한다
+    const main = document.querySelector('main');
+    let opening = document.querySelector('.opening'); //태그 정보
+    const newDiv = document.createElement('div'); //div 태그 만들기
 
+    if (currentSlide == 1 && !isOpening) { //1번 슬라이드일때, isOpening 은 일회성으로 할때
+
+      if (!opening) { // opening 이 없으면 
+
+        opening = document.createElement('div'); // 태그를 만든다
+        opening.classList.add('opening'); // opening 클래스 이름 붙인다
+        main.appendChild(opening); //main태그에 안에 opening을 붙여 추가한다
+
+        newDiv.classList.add('airBubbles'); //새 div 태그에 airBubbles 이름을 붙인다.
+        opening.appendChild(newDiv); //만들어진 div를(airBubbles) opening에 붙인다.
+
+        const airBubbles = document.querySelector('.airBubbles');
+
+        for (let i = 0; i < 3; i++) {// airBubbles안에 3번 div 추가
+          const childDiv = document.createElement('div');
+          airBubbles.appendChild(childDiv);
+        }
+
+        //opening안에 빛 태그 추가
+        const lightDiv = document.createElement('div'); //div 태그 만들고
+        lightDiv.classList.add('light'); //클래스 이름은 light로
+        opening.appendChild(lightDiv);
+
+        console.log('깊복전', opening);
+
+        //이제 css를 추가해야한다
+        // 1. 위의 opening 태그를 깊게 복사하고, 8번 붙인다
+        // 2. 붙이면?.. 예를들어 두번째로 복사한 태그의 애니메이션 속성만 건드릴 수 있나?
+
+        for (let i = 0; i < 27; i++) { //방울 몇번 복사 반복해서
+          const cloneAirBubble = airBubbles.cloneNode(true); //airBubbles를 깊은 복사
+          opening.appendChild(cloneAirBubble); // opening에 airBubbles를 붙인다.
+        }
+
+        console.log('깊복후', opening);
+
+        //fade out처럼 삭제하는법
+        setTimeout(() => {
+          opening.classList.add('fadeOut');
+        }, 12000); //애니메이션이 끝나는 시간에 맞춰야 한다
+
+      }
+
+    } else if (currentSlide != 1 || isOpening) { //그 외 슬라이드 일때 없애야돼 이제
+      const opening = document.querySelector('.opening');
+
+      if (opening) { //opening이 있으면
+        opening.classList.remove('opening'); // 선택 삭제
+        opening.remove(); //하위 태그 전부 삭제
+        isOpening = false;
+        console.log('삭제 됐나 안됐나');
+      }
+      isOpening = true; // 1회성으로 하기
+
+      setTimeout(() => {
+        isScrolling = false;
+      }, 500); //스크롤 0.5초 딜레이 넣기
+    }
 
   })
 }
 
 
-// intro 문짝 클릭하면 애니메이션 나오는 기능
-
-
-
-
-
-
+//////////////////
 // 창크기가 변할때 슬라이드 효과 막는 기능
 let resize;
 window.addEventListener("resize", () => {
