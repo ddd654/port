@@ -1,7 +1,6 @@
 // 마우스로 스크롤하는 경우
 //슬라이드를 마우스로 이동하는 기능
 let currentSlide = 0;
-let isOpening = false;
 
 const slides = document.querySelector(".slides");
 const sections = document.querySelectorAll("section");
@@ -79,33 +78,57 @@ window.addEventListener('wheel', (event) => {
   console.log(`스크롤 중 슬라이드 번호는 ${ currentSlide + 1 }`);
 
   // 두번째 슬라이드 오프닝
-  // main에 오프닝을 추가해보자
-  // main에 클래스리스트를 붙여서 관리하자
+  // main에 오프닝을 추가 
+  // main에 클래스리스트를 붙여야한다
   const main = document.querySelector('main');
-  let opening = document.querySelector('.opening'); //태그 만들기
-  // opening.classList.add('opening');//opening에 갖다 붙이기
+  let opening = document.querySelector('.opening'); //태그 정보
+  const newDiv = document.createElement('div'); //div 태그 만들기
+  let isOpening = false;
 
   if (currentSlide == 1 && !isOpening) { //1번 슬라이드일때, isOpening 은 일회성으로 할때
 
-    if (!opening) { // opening 이 없으면
+    if (!opening) { // opening 이 없으면 
+
       opening = document.createElement('div'); // 태그를 만든다
-      opening.classList.add('opening'); // 클래스 이름 붙인다
-      main.appendChild(opening); //태그에 추가한다
+      opening.classList.add('opening'); // opening 클래스 이름 붙인다
+      main.appendChild(opening); //main태그에 안에 opening을 붙여 추가한다
+
+      newDiv.classList.add('airBubbles'); //새 div 태그에 airBubbles 이름을 붙인다.
+      opening.appendChild(newDiv); //만들어진 div를(airBubbles) opening에 붙인다.
+
+      const airBubbles = document.querySelector('.airBubbles');
+
+      for (let i = 0; i < 3; i++) {// airBubbles안에 3번 div 추가
+        const childDiv = document.createElement('div');
+        airBubbles.appendChild(childDiv);
+      }
+
+      //opening안에 빛 태그 추가
+      const lightDiv = document.createElement('div'); //div 태그 만들고
+      lightDiv.classList.add('light'); //클래스 이름은 light로
+      opening.appendChild(lightDiv);
+
+      console.log( '깊복전', opening);
+
+      //이제 css를 추가해야한다
+      // 1. 위의 opening 태그를 깊게 복사하고, 8번 붙인다
+      // 2. 붙이면?.. 예를들어 두번째로 복사한 태그의 애니메이션 속성만 건드릴 수 있나?
+      
+      for(let i = 0; i < 27; i++){ //방울 몇번 복사 반복해서
+        const cloneAirBubble = airBubbles.cloneNode(true); //airBubbles를 깊은 복사
+        opening.appendChild(cloneAirBubble); // opening에 airBubbles를 붙인다.
+      }
+      
+      console.log( '깊복후', opening);
     }
-
-    console.log(main);
-
-
-    isOpening = true; // 1회성 끝
+    // isOpening = true; // 1회성으로 하기
   } else { //그 외 슬라이드 일때
 
     if (opening) { //opening이 있으면
-      // opening.classList.remove('opening'); // 선택 삭제
+      opening.classList.remove('opening'); // 선택 삭제
       opening.remove(); //하위 태그 전부 삭제
     }
 
-    // 오늘은 생기고 사라지게 까지 했고
-    // 이제 안쪽 애니메이션을 넣자
   }
 
   setTimeout(() => {

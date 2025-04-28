@@ -570,43 +570,352 @@ section {
   z-index: 5;
 }
 
-.air_bubbles {
-  border: 2px solid yellow;
-  /* background-color: yellow; */
-  position: fixed;
-  top: 48%;
-  left: 48%;
 
-  /* animation: up_left_bubble 2s forwards; */
+.opening .airBubbles:nth-of-type(n) {
+  width: 10px;
+  height: 10px;
+  position: fixed;
+  top: 200%;
+  left: 200%;
 }
 
-/* 처음엔 작게 하다가 점점 크게 */
-@keyframes up_left_bubble {
+.opening .airBubbles:nth-of-type(1) {
+  animation: left_up_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+}
+
+.opening .airBubbles:nth-of-type(3) {
+  animation: left_up_bubble2 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+}
+
+.opening .airBubbles:nth-of-type(4) {
+  animation: right_up_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+}
+
+.opening .airBubbles:nth-of-type(5) {
+  animation: right_up_bubble2 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+.opening .airBubbles:nth-of-type(6) {
+  animation: left_down_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+}
+
+.opening .airBubbles:nth-of-type(7) {
+  animation: left_down_bubble2 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+}
+
+.opening .airBubbles:nth-of-type(8) {
+  animation: right_down_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+}
+
+.opening .airBubbles:nth-of-type(9) {
+  animation: right_down_bubble2 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+.opening .airBubbles:nth-of-type(10) {
+  animation: left_up_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+}
+
+.opening .airBubbles:nth-of-type(11) {
+  animation: left_up_bubble2 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+.opening .airBubbles:nth-of-type(12) {
+  animation: right_up_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 5s;
+}
+
+.opening .airBubbles:nth-of-type(13) {
+  animation: right_up_bubble2 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 6s;
+}
+
+.opening .airBubbles:nth-of-type(14) {
+  animation: left_down_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+}
+
+.opening .airBubbles:nth-of-type(15) {
+  animation: left_down_bubble2 20s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+.opening .airBubbles:nth-of-type(16) {
+  animation: right_down_bubble 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 5s;
+}
+
+.opening .airBubbles:nth-of-type(17) {
+  animation: right_down_bubble2 6s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 6s;
+}
+
+.opening .airBubbles:nth-of-type(18) {
+  animation: left_up_bubble 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+}
+
+.opening .airBubbles:nth-of-type(19) {
+  animation: left_up_bubble2 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+}
+
+.opening .airBubbles:nth-of-type(20) {
+  animation: right_up_bubble 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+}
+
+.opening .airBubbles:nth-of-type(21) {
+  animation: right_up_bubble2 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+.opening .airBubbles:nth-of-type(22) {
+  animation: left_down_bubble 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+}
+
+.opening .airBubbles:nth-of-type(23) {
+  animation: left_down_bubble2 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+}
+
+.opening .airBubbles:nth-of-type(24) {
+  animation: right_down_bubble 20s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+}
+
+.opening .airBubbles:nth-of-type(25) {
+  animation: right_down_bubble2 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+.opening .airBubbles:nth-of-type(26) {
+  animation: right_down_bubble2 12s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+/* 왼쪽 부분 */
+.opening .airBubbles:nth-of-type(27) {
+  animation: left_up_bubble3 9s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+}
+
+.opening .airBubbles:nth-of-type(28) {
+  animation: left_up_bubble3 8s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 3s;
+}
+
+.opening .airBubbles:nth-of-type(29) {
+  animation: left_up_bubble3 10s forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 4s;
+}
+
+/* 처음엔 작게 하다가 점점 크게하면서 위치 변경 */
+@keyframes left_up_bubble {
   0% {
-    scale: 0.5;
-    top: 48%;
-    left: 48%;
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 10;
+    top: -90%;
+    left: -100%;
+  }
+}
+
+@keyframes left_up_bubble2 {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: -100%;
+    left: -40%;
+  }
+}
+
+@keyframes left_up_bubble3 {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: -20%;
+    left: -100%;
+  }
+}
+
+
+@keyframes right_up_bubble {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: -100%;
+    left: 100%;
+  }
+}
+
+@keyframes right_up_bubble2 {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: -70%;
+    left: 300%;
+  }
+}
+
+@keyframes left_down_bubble {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
   }
 
   100% {
     scale: 5.0;
     top: 100%;
-    left: 80%;
+    left: -100%;
+  }
+}
+
+@keyframes left_down_bubble2 {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: 100%;
+    left: -7%;
+  }
+}
+
+@keyframes right_down_bubble {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: 100%;
+    left: 20%;
+  }
+}
+
+@keyframes right_down_bubble2 {
+  0% {
+    scale: 0.1;
+    top: 50%;
+    left: 50%;
+  }
+
+  100% {
+    scale: 5.0;
+    top: 100%;
+    left: 100%;
   }
 }
 
 
-.air_bubbles div:nth-child(1) {
-  border: 0px solid whitesmoke;
+/* 각 물방울 */
+.airBubbles :nth-child(1) {
+  border: 1px solid whitesmoke;
   position: absolute;
   top: 15px;
   left: 5px;
 
   width: 10px;
   height: 10px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(173, 216, 230, 0.1));
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(173, 216, 230, 0.1));
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
   animation: bubble_wave 1s alternate infinite linear;
+}
+
+.airBubbles div:nth-child(2) {
+  border: 1px solid whitesmoke;
+  position: absolute;
+  top: 6px;
+  left: 7px;
+
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(173, 216, 230, 0.1));
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
+  animation: bubble_wave 1s alternate-reverse infinite linear;
+}
+
+.airBubbles div:nth-child(3) {
+  border: 1px solid whitesmoke;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(173, 216, 230, 0.2));
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+
+  animation: bubble_wave 1s alternate forwards infinite linear;
 }
 
 @keyframes bubble_wave {
@@ -631,36 +940,46 @@ section {
   }
 }
 
-.air_bubbles div:nth-child(2) {
-  border: 0px solid whitesmoke;
-  position: absolute;
-  top: 6px;
-  left: 7px;
-
-  width: 12px;
-  height: 12px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(173, 216, 230, 0.1));
-  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
-  animation: bubble_wave 1s alternate-reverse infinite linear;
-}
-
-.air_bubbles div:nth-child(3) {
-  border: 0px solid whitesmoke;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-
-  width: 16px;
-  height: 16px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(173, 216, 230, 0.2));
-  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
-
-  animation: bubble_wave 1s alternate forwards infinite linear;
-}
-
-
-/* 펼쳐지는 느낌까지는 알겠는데
+/* 이제 빛을 하면된다 가상선*/
+/* 펼쳐지는 느낌은 알겠는데
 
 1. 여러개의 태그를 사방으로 퍼지게 추가해야한다
 2. 똑같은 태그를 추가하고 애니메이션을 다르게 넣으면 되겠지
 */
+
+.light {
+  border: 2px solid red;
+  width: 100px;
+  height: 100px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.light::after {
+  content: '';
+  border: 2px solid white;
+  width: 200px;
+  height: 200px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.light::before {
+  content: '';
+  border: 2px solid yellow;
+  width: 300px;
+  height: 300px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
