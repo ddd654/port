@@ -15,12 +15,12 @@
 
 .board p {
   /* border: 2px solid red; */
-  animation: smoky 2s forwards;
+  animation: spin 2s forwards;
   animation-delay: 2s;
 }
 
-
-@keyframes smoky {
+/* 
+@keyframes spin {
   0% {
   }
 
@@ -28,5 +28,6 @@
     transform: rotate(360deg)scale(2);
     opacity: 0;
   }
-}
+} 
+  */
 
