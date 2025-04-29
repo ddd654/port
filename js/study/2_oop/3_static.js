@@ -10,7 +10,7 @@ class IdolModel {
     this.year = year;
   }
 
-  static returnGruop() {
+  static returnGroup() {
     return '미래그룹';
   }
 
@@ -20,7 +20,7 @@ const coco = new IdolModel('코코', 2020);
 console.log(coco);
 
 console.log(IdolModel.group);
-console.log(IdolModel.returnGruop());
+console.log(IdolModel.returnGroup());
 
 //
 // factory constructor

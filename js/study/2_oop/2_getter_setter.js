@@ -29,7 +29,7 @@ console.log(yujin);
 
 //private
 class IdolModel2{
-  #name; //구식 문법
+  #name; //구식 문법 샾
   year;
   constructor(name, year){
     this.#name = name;
@@ -52,8 +52,6 @@ console.log(yujin2);
 console.log(yujin2.name);
 yujin2.name = '넣을 이름';
 console.log(yujin2.name);
-
-
 
 
 
